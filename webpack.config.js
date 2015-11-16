@@ -8,7 +8,7 @@ module.exports = {
       'webpack-dev-server/client?http://0.0.0.0:8080',
       'webpack/hot/only-dev-server',
       './src/main.js'
-    ]
+    ]       
   },
   output: {
     filename: '[name].js',
@@ -16,8 +16,9 @@ module.exports = {
     publicPath: '/public/'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.HotModuleReplacementPlugin()
+    , new webpack.NoErrorsPlugin()
+    //, new webpack.optimize.UglifyJsPlugin({minimize: true})
   ],
   module: {
     loaders: [

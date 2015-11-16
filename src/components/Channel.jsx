@@ -1,10 +1,16 @@
 import React from 'react';
 import mui from 'material-ui';
-import Actions from '../actions';
+import Actions from '../actions';   
 
-var {ListItem} = mui;
 
-class Channel extends React.Component {
+var {ListItem, Badge, FontIcon, ListDivider } = mui;
+
+var  Index  = mui;
+
+
+
+
+export default class Channel extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -15,15 +21,24 @@ class Channel extends React.Component {
         if(this.props.channel.selected){
             style.backgroundColor = '#f0f0f0';
         }
-        
         return (
-            <ListItem
-                href={'#/chat/' + this.props.channel.key }
-                style={style}
-                key={this.props.channel.key}
-            >{this.props.channel.name}</ListItem>
+            <div>
+                <ListDivider  />
+                <ListItem
+                    href={'#/chat/' + this.props.channel.key }
+                    style={style}
+                    rightIcon={
+                        <Badge badgeContent={this.props.channel.countSongs} primary={true}>
+                            <FontIcon className="material-icons">library_music</FontIcon> 
+                        </Badge>
+                    }
+                    primaryText = {this.props.channel.name}
+                    secondaryText = {this.props.channel.description}
+                    secondaryTextLines={2}
+                />
+            </div>
+        
         );
     }
 }
 
-export default Channel;

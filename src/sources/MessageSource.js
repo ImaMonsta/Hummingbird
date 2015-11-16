@@ -29,13 +29,13 @@ let MessageSource = {
             }
             firebaseRef = new Firebase('https://hummingbird.firebaseio.com/messages/' +  state.selectedChannel.key  );
             return new Promise((resolve,reject)=>{
-                firebaseRef.orderByChild('message').once('value', (dataSnapshot)=> {
+                firebaseRef.once('value', (dataSnapshot)=> {
                    var messages = dataSnapshot.val();
                    resolve(messages);
                 });
                 
                 
-                firebaseRef.orderByChild('message').on("child_added", (msg) => {
+                firebaseRef.on("child_added", (msg) => {
                     let msgVal = msg.val();
                     msgVal.key = msg.key();
                     Actions.messageReceived(msgVal);

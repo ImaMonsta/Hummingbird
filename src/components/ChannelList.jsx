@@ -4,7 +4,7 @@ import mui from 'material-ui';
 import connectToStores from 'alt/utils/connectToStores';
 import ChatStore from '../stores/ChatStore';
 
-var {Card, List, CircularProgress} = mui;
+var {Card, List, CircularProgress, IconMenu,MenuItem, IconButton, FontIcon, ListItem} = mui;
 
 @connectToStores
 class ChannelList extends React.Component{
@@ -59,16 +59,26 @@ class ChannelList extends React.Component{
                 );
             })
         .value();
+        
+        var myIcon = <IconMenu iconButtonElement={
+                            <IconButton> <FontIcon className="material-icons">menu</FontIcon></IconButton>
+                    }>
+                        <MenuItem index={0} primaryText="Refresh" />
+                        <MenuItem index={1} primaryText="Send feedback" />
+                        <MenuItem index={2} primaryText="Settings" />
+                        <MenuItem index={3} primaryText="Help" />
+                        <MenuItem index={4} primaryText="Sign out" />
+                    </IconMenu>;
   
-      return (
-        <Card style={{
-            flexGrow: 1
-          }}>
-            <List>
-                {channelNodes}
-            </List>
-        </Card>
-      );
+        return (
+            <Card style={{
+                flexGrow: 1
+              }}>
+                <List>
+                    {channelNodes}
+                </List>
+            </Card>
+        );
     }
 }
 

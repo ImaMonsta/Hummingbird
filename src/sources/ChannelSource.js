@@ -1,7 +1,7 @@
 import Actions from '../actions';
 import Firebase from 'firebase';
 
-let firebaseRef = new Firebase('https://hummingbird.firebaseio.com/channels');
+let firebaseRef = new Firebase('https://hummingbird.firebaseio.com/albums');
 
 let ChannelSource = {
     getChannels: {

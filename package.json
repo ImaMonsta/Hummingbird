@@ -23,7 +23,7 @@
     "sass-loader": "^1.0.3",
     "style-loader": "^0.12.3",
     "webpack": "^1.10.5",
-    "material-ui": "^0.13.1",
+    "material-ui": "^0.13.2",
     "react-dom": "^0.14.2",
     "firebase": "^2.3.1",
     "lodash": "^3.10.1",
