@@ -11,9 +11,9 @@ let MessageSource = {
                     return resolve();
                 }
                 firebaseRef.push({
-                    'message': state.message,
+                    'name': state.message,
                     'date': new Date().toUTCString(),
-                    'author': state.user.uid,
+                    //'author': state.user.uid,
                     'profilePic': state.user.google.profileImageURL
                 });
                 resolve();
@@ -27,7 +27,7 @@ let MessageSource = {
             if(firebaseRef){
                 firebaseRef.off();
             }
-            firebaseRef = new Firebase('https://hummingbird.firebaseio.com/messages/' +  state.selectedChannel.key  );
+            firebaseRef = new Firebase('https://hummingbird.firebaseio.com/albums/' +  state.selectedChannel.key + '/songs/' );
             return new Promise((resolve,reject)=>{
                 firebaseRef.once('value', (dataSnapshot)=> {
                    var messages = dataSnapshot.val();
