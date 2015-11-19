@@ -3,10 +3,11 @@ import Message from './Message.jsx';
 import mui from 'material-ui';
 import Firebase from 'firebase';
 import _ from 'lodash';
+import $ from 'jquery';
 import connectToStores from 'alt/utils/connectToStores';
 import ChatStore from '../stores/ChatStore';
 
-var {Card, List, CircularProgress} = mui;
+var {Card, List, CircularProgress,FloatingActionButton, FontIcon} = mui;
 
 @connectToStores
 class MessageList extends React.Component{
@@ -24,6 +25,10 @@ class MessageList extends React.Component{
     
     static getPropsFromStores(){
         return ChatStore.getState();
+    }
+    
+    onClick(evt){
+        console.log(evt);
     }
     
     render(){
@@ -46,6 +51,8 @@ class MessageList extends React.Component{
                 width: '60px'
                 }} />;
         }
+        
+    
       
   
       return (
@@ -56,6 +63,13 @@ class MessageList extends React.Component{
             <List>
                 {messageNodes}
             </List>
+            
+            <FloatingActionButton 
+                onClick={this.onClick.bind(this)}
+                >
+                <FontIcon className="material-icons">file_upload</FontIcon>
+            </FloatingActionButton>
+            <input id="fileupload" type="file" name="files[]" multiple/>
         </Card>
       );
     }

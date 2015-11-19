@@ -30,6 +30,8 @@
     "trim": "0.0.1",
     "alt": "^0.17.8",
     "history": "^1.13.0",
-    "react-router": "^1.0.0"
+    "react-router": "^1.0.0",
+    "file-loader": "^0.8.4",
+    "jquery": "^2.1.4"
   }
 }

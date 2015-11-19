@@ -22,16 +22,23 @@ module.exports = {
   ],
   module: {
     loaders: [
-      {
-        test: /\.jsx?$/,
-        include: path.join(__dirname, 'src'),
-        loader: 'react-hot!babel'
-      },
-      {
-        test: /\.scss$/,
-        include: path.join(__dirname, 'src'),
-        loader: 'style!css!sass'
-      }
+        {
+            test: /\.jsx?$/,
+            include: path.join(__dirname, 'src'),
+            loader: 'react-hot!babel'
+          
+        },
+        {
+            test: /\.scss$/,
+            include: path.join(__dirname, 'src'),
+            loader: 'style!css!sass'
+        },
+        { 
+            test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
+            include: path.join(__dirname, 'src'),
+            loader: "file-loader" 
+            
+        }
     ]
   }
 }
